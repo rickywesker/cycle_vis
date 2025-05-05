@@ -25,7 +25,7 @@ pub struct RsiParams {
 
 // ---------------- 帮助函数：拿一个异步连接 ----------------
 async fn redis_conn() -> redis::RedisResult<redis::aio::Connection> {
-    let client = redis::Client::open("redis://127.0.0.1/")?;
+    let client = redis::Client::open("redis://:foobared@127.0.0.1/")?;
     client.get_async_connection().await
 }
 
