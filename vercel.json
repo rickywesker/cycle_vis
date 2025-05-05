@@ -1,0 +1,11 @@
+{
+  "framework": "nextjs",
+  "rootDirectory": "frontend-nextjs",
+  "buildCommand": "npm run tailwind:css && npm run build",
+  "outputDirectory": ".next",
+  "ignoreCommand": "echo Ignoring backend-rust",
+  "installCommand": "npm install",
+  "git": {
+    "ignore": ["backend-rust/**"]
+  }
+}
