@@ -6,7 +6,7 @@ import RSIChart from '../components/RSIChart';
 import Navbar from '../components/Navbar';
 // Avoid SSR issues with Chart.js
 const NoSSRChart = dynamic(() => Promise.resolve(RSIChart), { ssr: false });
-axios.get<IndicatorResult[]>(`${apiBase}/api/rsi`);
+
 interface IndicatorResult {
   symbol: string;
   value: number;
@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get<IndicatorResult[]>('/api/rsi');
+        const res = await axios.get<IndicatorResult[]>(`${apiBase}/api/rsi`);
         setData(res.data);
       } catch (err) {
         console.error('Fetch error:', err);
