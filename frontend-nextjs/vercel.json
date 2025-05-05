@@ -1,0 +1,6 @@
+{
+    "framework": "nextjs",
+    "buildCommand": "npm run tailwind:css && npm run build",
+    "outputDirectory": ".next",
+    "ignores": ["**/backend-rust/**"]
+  }
