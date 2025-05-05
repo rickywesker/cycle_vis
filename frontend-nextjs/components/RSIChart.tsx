@@ -52,12 +52,12 @@ export default function RSIChart({ data }: Props) {
     }]
   };
 
-  const options = {
+  const options: ChartOptions<'scatter'> = {
     responsive: true,
     layout: { padding: { left: 20, right: 20 } },
     plugins: {
       legend: { position: 'top' as const, labels: { color: '#ffffff' } },
-      title: { display: true, text: 'Relative Strength Index', color: '#ffffff',font: { size: 20, weight: 'bold' } },
+      title: { display: true, text: 'Relative Strength Index', color: '#ffffff',font: { size: 20, weight: 'bold' as const } },
       tooltip: { callbacks: { label: ctx => `${ctx.raw.x}: ${ctx.raw.y.toFixed(2)}` } },
       datalabels: {
         align: 'top',
