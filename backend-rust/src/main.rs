@@ -5,7 +5,7 @@ use anyhow::Result;
 
 // 👇 新增
 use tower_http::cors::{CorsLayer, Any};
-use http::{HeaderValue, Method};
+use axum::http::{HeaderValue, Method};
 
 mod api;
 mod indicators;
