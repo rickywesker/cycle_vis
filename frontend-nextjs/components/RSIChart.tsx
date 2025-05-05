@@ -58,13 +58,21 @@ export default function RSIChart({ data }: Props) {
     plugins: {
       legend: { position: 'top' as const, labels: { color: '#ffffff' } },
       title: { display: true, text: 'Relative Strength Index', color: '#ffffff',font: { size: 20, weight: 'bold' as const } },
-      tooltip: { callbacks: { label: ctx => `${ctx.raw.x}: ${ctx.raw.y.toFixed(2)}` } },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const { x, y } = ctx.raw as { x: string; y: number };  // 👈 明确断言类型
+            const sym = x.replace(/USDT$/, '');
+            return `${sym}: ${y.toFixed(2)}`;
+          }
+        }
+      },
       datalabels: {
         align: 'top',
         color: '#ffffff',
-        formatter: (value: any) => {
-          const y = value.y as number;
-          if (y < 40 || y > 70) return (value.x as string).replace('USDT', '');
+        formatter: (value) => {
+          const v = value as { x: string; y: number };
+          if (v.y < 40 || v.y > 70) return v.x.replace(/USDT$/, '');
           return null;
         }
       },
