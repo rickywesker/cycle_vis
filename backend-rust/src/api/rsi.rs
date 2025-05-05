@@ -119,14 +119,13 @@ pub async fn get_rsi(Query(params): Query<RsiParams>) -> impl IntoResponse {
     });
 
     let results: Vec<IndicatorResult> = join_all(tasks).await;
-
     // ---------- 3. 写回 Redis，TTL 30 秒 ----------
     if let Ok(mut conn) = redis_conn().await {
         let _ : redis::RedisResult<()> =
             conn.set_ex::<String, String, ()>(
                 cache_key,
                 serde_json::to_string(&results).unwrap(),
-                30).await;
+                300).await;
             }
     Json(results)
 }

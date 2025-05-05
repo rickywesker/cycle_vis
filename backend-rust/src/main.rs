@@ -13,10 +13,20 @@ mod models;
 mod data;
 
 #[tokio::main]
+
+
+
+
+
 async fn main() -> Result<()> {
     // ── 1. CORS 层 ───────────────────────────────────────────────
     // 生产：只允许正式前端域名
     // 开发 (cargo run) 时也想本地访问，可加 cfg(debug_assertions)
+
+
+
+
+    
     let cors = CorsLayer::new()
         .allow_methods([Method::GET])
         .allow_headers(Any)
