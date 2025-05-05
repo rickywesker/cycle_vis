@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import { apiBase } from '../utils/api';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 import RSIChart from '../components/RSIChart';
 import Navbar from '../components/Navbar';
 // Avoid SSR issues with Chart.js
 const NoSSRChart = dynamic(() => Promise.resolve(RSIChart), { ssr: false });
-
+axios.get<IndicatorResult[]>(`${apiBase}/api/rsi`);
 interface IndicatorResult {
   symbol: string;
   value: number;
