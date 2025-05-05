@@ -1,7 +1,7 @@
-use serde::Serialize;
+// src/models/indicator.rs
+use serde::{Serialize, Deserialize};
 
-/// 通用的技術指標回傳格式
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub struct IndicatorResult {
     pub symbol: String,
     pub value: f64,
