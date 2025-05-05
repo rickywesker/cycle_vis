@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run tailwind:css && npm run build",
+  "buildCommand": "npm run tailwind:build && npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "git": {
