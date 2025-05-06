@@ -80,7 +80,7 @@ pub async fn get_rsi(Query(params): Query<RsiParams>) -> impl IntoResponse {
     if let Ok(mut conn) = redis_conn().await {
         // 忽略错误：即使写失败也照常返回
         let _ : redis::RedisResult<()> =
-            conn.set_ex(&cache_key, serde_json::to_string(&results).unwrap(), 300).await;
+            conn.set_ex(&cache_key, serde_json::to_string(&results).unwrap(), 43200).await;
     }
 
     Json(results)
