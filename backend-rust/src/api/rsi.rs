@@ -61,13 +61,13 @@ pub async fn get_rsi(Query(params): Query<RsiParams>) -> impl IntoResponse {
                     let last = *rsi_series.last().unwrap_or(&f64::NAN);
                     IndicatorResult {
                         symbol,
-                        value: last,
+                        value: if last.is_nan() { None } else { Some(last) },
                         category: categorize_rsi(last),
                     }
                 }
                 Err(err) => IndicatorResult {
                     symbol,
-                    value: f64::NAN,
+                    value: None,
                     category: format!("error: {err}"),
                 },
             }
