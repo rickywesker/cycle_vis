@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="dark min-h-screen p-8 bg-gray-900 text-white">
       <Navbar />
-      <div className="max-w-5xl mx-auto grid gap-6">
+      <div className="w-full mx-auto grid gap-6">
         <div className="bg-gray-800 rounded-lg shadow-lg p-4">
         <div className="bg-gray-800 rounded-lg shadow-lg p-4">
   <input
@@ -49,7 +49,7 @@ export default function Home() {
 </div>
         </div>
         <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-full" style={{ height: 500 }}>
-          <RSIChart data={filtered} />
+          <NoSSRChart data={filtered} />
         </div>
       </div>
     </div>
