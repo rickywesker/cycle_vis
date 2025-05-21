@@ -54,6 +54,7 @@ export default function RSIChart({ data }: Props) {
 
   const options: ChartOptions<'scatter'> = {
     responsive: true,
+    maintainAspectRatio: false,
     layout: { padding: { left: 20, right: 20 } },
     plugins: {
       legend: { position: 'top' as const, labels: { color: '#ffffff' } },
@@ -97,6 +98,10 @@ export default function RSIChart({ data }: Props) {
     }
   };
 
-  return <Scatter data={chartData} options={options} />;
+  return(
+    <div className="w-full" style={{ height: 500 }}>
+      <Scatter data={chartData} options={options} />
+    </div>
+  );
 }
 
