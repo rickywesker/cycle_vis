@@ -48,7 +48,7 @@ export default function Home() {
   />
 </div>
         </div>
-        <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-full" style={{ height: 500 }}>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-full box-border h-[500px]">
           <NoSSRChart data={filtered} />
         </div>
       </div>

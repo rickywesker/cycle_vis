@@ -99,7 +99,7 @@ export default function RSIChart({ data }: Props) {
   };
 
   return(
-    <div className="w-full" style={{ height: 500 }}>
+    <div className="w-full h-full">
       <Scatter data={chartData} options={options} />
     </div>
   );
